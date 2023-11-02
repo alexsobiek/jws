@@ -1,0 +1,4 @@
+[libraries]
+junit = { group = "org.junit.jupiter", name = "junit-jupiter", version = "5.10.0" }
+netty = { group = "io.netty", name = "netty-all", version = "4.1.100.Final" }
+gson = { group = "com.google.code.gson", name = "gson", version = "2.10.1" }
