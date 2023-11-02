@@ -4,7 +4,6 @@ import com.alexsobiek.jws.WebSocketClient;
 import com.alexsobiek.jws.WebSocketClientHandler;
 import com.alexsobiek.jws.gson.GsonWebSocketCodec;
 import com.google.gson.JsonObject;
-import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -30,7 +29,6 @@ public class GsonWebSocketTest {
                 future.completeExceptionally(exception);
             }
         })) {
-            new Thread(() -> {
                 try {
                     client.open().sync();
                     client.writeAndFlush(message); // Send message
@@ -40,10 +38,9 @@ public class GsonWebSocketTest {
                 } catch (Exception e) {
                     Assertions.fail(e);
                 }
-            }).start();
             Assertions.assertEquals(future.get(), message);
-        } catch(Exception e) {
+        } catch (Exception e) {
             Assertions.fail(e);
-        };
+        }
     }
 }
