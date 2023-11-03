@@ -18,6 +18,10 @@ java {
 }
 
 tasks {
+    jar {
+        archiveClassifier.set("dev")
+    }
+
     shadowJar {
         minimize()
         archiveClassifier.set("")

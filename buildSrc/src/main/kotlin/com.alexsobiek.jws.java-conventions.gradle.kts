@@ -27,10 +27,6 @@ tasks {
     test {
         useJUnitPlatform()
     }
-
-    jar {
-        archiveClassifier.set("dev")
-    }
 }
 
 publishing {
